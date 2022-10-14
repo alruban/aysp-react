@@ -1,0 +1,16 @@
+{
+	"search.exclude": {
+		".git": true,
+		"assets": true
+	},
+	"editor.tabSize": 2,
+	"/* Comment - files.exclude */": "Hidden to avoid clutter. Add back in if required.",
+	"files.exclude": {
+		"**/dist": false,
+		"**/.git": true,
+    "**/.github": true,
+		"**/node_modules": true,
+		"**/.eslintrc.js": true,
+		"**/stylelint.config.js": true,
+	}
+}

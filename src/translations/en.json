@@ -1,0 +1,15 @@
+{
+  "global": {
+    "website": "https://www.areyouseeing.pictures",
+    "title": "are you seeing pictures",
+    "subtitle": "pictures by sam clarke"
+  },
+  "header": {
+    "title": "Header",
+    "children": {
+      "navigation": {
+        "title": "Navigation"
+      }
+    }
+  }
+}
