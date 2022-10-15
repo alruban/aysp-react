@@ -1,14 +1,16 @@
 import React from 'react';
-import { ReactSVG } from 'react-svg';
 import { TranslateComponent } from 'react-translate-json/react';
 
+import IconBurger from '../svgs/svg-icon-burger.svg'
+
 export default function Header() {
+
   return (
     <header
       className="header"
       data-module="header"
     >
-      <div className="header__inner">
+      <div className="header__inner container">
         <div className="header__body">
           <div className="header-banner">
             <button
@@ -21,12 +23,7 @@ export default function Header() {
               )}/>
 
               <span className="header-banner__icon">
-                <ReactSVG
-                  src={ 'svg-icon-burger.svg' }
-                  beforeInjection={(svg) => {
-                    svg.classList.add("header-banner__svg")
-                  }}
-                />
+                <IconBurger />
               </span>
             </button>
 

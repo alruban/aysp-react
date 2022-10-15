@@ -9,7 +9,7 @@
 		"**/dist": false,
 		"**/.git": true,
     "**/.github": true,
-		"**/node_modules": true,
+		"**/node_modules": false,
 		"**/.eslintrc.js": true,
 		"**/stylelint.config.js": true,
 	}

@@ -51,15 +51,16 @@ const core = {
         }
       },
       {
-        test: /\.(png|jpg|jpeg|gif|ico)$/i,
+        test: /\.(png|jpg|jpeg|gif|ico|webp)$/i,
         type: 'asset/resource',
         generator: {
           filename: '[name][ext]'
         }
       },
       {
-        test: /\.(svg)$/i,
-        type: 'asset/resource',
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: '@svgr/webpack',
         generator: {
           filename: '[name][ext]'
         }
