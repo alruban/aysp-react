@@ -79,6 +79,11 @@ const core = {
           filename: '[name][ext]'
         }
       },
+      {
+        test: /\.webmanifest$/i,
+        use: 'webpack-webmanifest-loader',
+        type: 'asset/resource',
+      },
     ],
   },
   devtool: "source-map",

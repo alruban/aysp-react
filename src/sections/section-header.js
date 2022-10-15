@@ -1,36 +1,55 @@
-import React from 'react';
-import { TranslateComponent } from 'react-translate-json/react';
+import React, { useState, useEffect } from 'react';
+import { Translate } from 'react-translate-json/react';
 
-import IconBurger from '../svgs/svg-icon-burger.svg'
+import IconInstagram from '../svgs/svg-icon-instagram.svg'
 
 export default function Header() {
 
+  function useScrollDirection() {
+    const [scrollDirection, setScrollDirection] = useState(null);
+
+    useEffect(() => {
+      let lastScrollY = window.pageYOffset;
+
+      const updateScrollDirection = () => {
+        const scrollY = window.pageYOffset;
+        const direction = scrollY > lastScrollY ? "header--scrolled-down" : "header--scrolled-up";
+
+        if (direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {
+          setScrollDirection(direction);
+        }
+        lastScrollY = scrollY > 0 ? scrollY : 0;
+      };
+      window.addEventListener("scroll", updateScrollDirection);
+
+      return () => {
+        window.removeEventListener("scroll", updateScrollDirection);
+      }
+    }, [scrollDirection]);
+
+    return scrollDirection;
+  };
+
+  const scrollDirection = useScrollDirection();
+
   return (
     <header
-      className="header"
+      className={`header ${scrollDirection}`}
       data-module="header"
     >
       <div className="header__inner container">
         <div className="header__body">
           <div className="header-banner">
-            <button
-              className="header-banner__button"
-              type="button"
-              data-drawer-trigger="navigation"
-            >
-              <TranslateComponent label="header.children.navigation.title" render={(res) => (
-                  <span className="header-banner__title util__screen-reader-only">{res}</span>
-              )}/>
-
-              <span className="header-banner__icon">
-                <IconBurger />
-              </span>
-            </button>
+            <Translate label="links.instagram" render={(res) => (
+              <a href={`${res}`} className="header-banner__icon">
+                <IconInstagram />
+              </a>
+            )}/>
 
             <a className="header-banner__title" href="/">
-              <TranslateComponent label="global.title" render={(res) => res}/>
+              <Translate label="global.title" render={(res) => res}/>
 
-              <TranslateComponent label="global.subtitle" render={(res) => (
+              <Translate label="global.email" render={(res) => (
                   <span className="header-banner__subtitle">{res}</span>
               )}/>
             </a>

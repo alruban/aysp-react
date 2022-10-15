@@ -18,17 +18,21 @@
   }
 }
 
-.image__body {
+.image__inner {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 
-.image__image-container {
-  width: auto;
+.image__image-wrapper {
+  position: relative;
+}
+
+.image__image-overlay {
+  position: absolute;
+  width: 100%;
   height: 100%;
-  max-height: 80vh;
+  background-size: contain;
 }
 
 .image__image {
@@ -37,7 +41,14 @@
 
   img {
     display: block;
-    width: 100%;
+    width: auto;
+    max-width: 80vw;
     height: 100%;
+    max-height: 80vh;
+    margin-inline: auto;
+
+    @media (--sm) {
+      max-width: 60vw;
+    }
   }
 }

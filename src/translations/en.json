@@ -2,7 +2,11 @@
   "global": {
     "website": "https://www.areyouseeing.pictures",
     "title": "are you seeing pictures",
-    "subtitle": "pictures by sam clarke"
+    "subtitle": "pictures by sam clarke",
+    "email": "sam@areyouseeing.pictures"
+  },
+  "links": {
+    "instagram": "https://www.instagram.com/sonclock"
   },
   "header": {
     "title": "Header",

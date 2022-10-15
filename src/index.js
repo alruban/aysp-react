@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { TranslateProvider } from 'react-translate-json';
 
 import App from './App';
@@ -20,8 +20,8 @@ const StrictApp = () => (
   </React.StrictMode>
 );
 
-const rootElement = document.getElementById('root');
+const root = createRoot(document.getElementById('root'));
 
-render(<StrictApp />, rootElement);
+root.render(<StrictApp />);
 
 module.hot.accept();

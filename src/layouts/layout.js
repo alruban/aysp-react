@@ -2,39 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-import manifestJSON from '/src/favicons/manifest.json';
+import manifestJSON from '/src/favicons/site.webmanifest';
 import browserconfigXML from '/src/favicons/browserconfig.xml';
 
 import faviconICO from '/src/favicons/favicon.ico';
 
 import favicon16x from '/src/favicons/favicon-16x16.png';
 import favicon32x from '/src/favicons/favicon-32x32.png';
-import favicon96x from '/src/favicons/favicon-96x96.png';
 
-import faviconMs70x from '/src/favicons/ms-icon-70x70.png';
-import faviconMs144x from '/src/favicons/ms-icon-144x144.png';
-import faviconMs150x from '/src/favicons/ms-icon-150x150.png';
-import faviconMs310x from '/src/favicons/ms-icon-310x310.png';
+import faviconMs70x from '/src/favicons/mstile-70x70.png';
+import faviconMs144x from '/src/favicons/mstile-144x144.png';
+import faviconMs150x from '/src/favicons/mstile-150x150.png';
+import faviconMs310x150 from '/src/favicons/mstile-310x150.png';
+import faviconMs310x from '/src/favicons/mstile-310x310.png';
 
-import faviconAppleIcon from '/src/favicons/apple-icon.png';
-import faviconApplePrecomposed from '/src/favicons/apple-icon.png';
+import faviconAppleIcon from '/src/favicons/apple-touch-icon.png';
 
-import faviconApple57x from '/src/favicons/apple-icon-57x57.png';
-import faviconApple60x from '/src/favicons/apple-icon-60x60.png';
-import faviconApple72x from '/src/favicons/apple-icon-72x72.png';
-import faviconApple76x from '/src/favicons/apple-icon-76x76.png';
-import faviconApple114x from '/src/favicons/apple-icon-114x114.png';
-import faviconApple120x from '/src/favicons/apple-icon-120x120.png';
-import faviconApple144x from '/src/favicons/apple-icon-144x144.png';
-import faviconApple152x from '/src/favicons/apple-icon-152x152.png';
-import faviconApple180x from '/src/favicons/apple-icon-180x180.png';
-
-import faviconAndroid36x from '/src/favicons/android-icon-36x36.png';
-import faviconAndroid48x from '/src/favicons/android-icon-48x48.png';
-import faviconAndroid72x from '/src/favicons/android-icon-72x72.png';
-import faviconAndroid96x from '/src/favicons/android-icon-96x96.png';
-import faviconAndroid144x from '/src/favicons/android-icon-144x144.png';
-import faviconAndroid192x from '/src/favicons/android-icon-192x192.png';
+import faviconAndroid192x from '/src/favicons/android-chrome-192x192.png';
+import faviconAndroid512x from '/src/favicons/android-chrome-512x512.png';
 
 const Layout = (props) => (
   <HelmetProvider>
@@ -56,26 +41,11 @@ const Layout = (props) => (
       <link rel="icon" type="image/x-icon" href={ faviconICO }/>
       <link rel="icon" type="image/png" sizes="16x16" href={ favicon16x }/>
       <link rel="icon" type="image/png" sizes="32x32" href={ favicon32x }/>
-      <link rel="icon" type="image/png" sizes="96x96" href={ favicon96x }/>
 
       <link rel="apple-touch-icon" href={ faviconAppleIcon }/>
-      <link rel="apple-touch-icon" sizes="57x57" href={ faviconApple57x }/>
-      <link rel="apple-touch-icon" sizes="60x60" href={ faviconApple60x }/>
-      <link rel="apple-touch-icon" sizes="72x72" href={ faviconApple72x }/>
-      <link rel="apple-touch-icon" sizes="76x76" href={ faviconApple76x }/>
-      <link rel="apple-touch-icon" sizes="114x114" href={ faviconApple114x }/>
-      <link rel="apple-touch-icon" sizes="120x120" href={ faviconApple120x }/>
-      <link rel="apple-touch-icon" sizes="144x144" href={ faviconApple144x }/>
-      <link rel="apple-touch-icon" sizes="152x152" href={ faviconApple152x }/>
-      <link rel="apple-touch-icon" sizes="180x180" href={ faviconApple180x }/>
-      <link rel="apple-touch-icon-precomposed" href={ faviconApplePrecomposed }/>
 
-      <link rel="icon" type="image/png" sizes="36x36" href={ faviconAndroid36x }/>
-      <link rel="icon" type="image/png" sizes="48x48" href={ faviconAndroid48x }/>
-      <link rel="icon" type="image/png" sizes="72x72" href={ faviconAndroid72x }/>
-      <link rel="icon" type="image/png" sizes="96x96" href={ faviconAndroid96x }/>
-      <link rel="icon" type="image/png" sizes="144x144" href={ faviconAndroid144x }/>
       <link rel="icon" type="image/png" sizes="192x192" href={ faviconAndroid192x }/>
+      <link rel="icon" type="image/png" sizes="152x512" href={ faviconAndroid512x }/>
 
       <link rel="manifest" href={ manifestJSON }/>
 
@@ -86,6 +56,7 @@ const Layout = (props) => (
       <meta name="msapplication-TileImage" content={ faviconMs70x }/>
       <meta name="msapplication-TileImage" content={ faviconMs144x }/>
       <meta name="msapplication-TileImage" content={ faviconMs150x }/>
+      <meta name="msapplication-TileImage" content={ faviconMs310x150 }/>
       <meta name="msapplication-TileImage" content={ faviconMs310x }/>
     </Helmet>
     <div id="wrapper">

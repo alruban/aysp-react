@@ -4,23 +4,34 @@ import Layout from '../layouts/layout';
 import Header from '../sections/section-header';
 import Image from '../sections/section-image';
 
-var listOfImages =[];
+let lowQualityImages =[];
+let highQualityImages =[];
 
-class Images extends React.Component{
-  importAll(r) {
-    return r.keys().map(r);
+class Images extends React.Component {
+  constructor() {
+    super();
+    lowQualityImages = this.importAll(require.context('../images/portfolio/lq', false, /\.(webp)$/));
+    highQualityImages = this.importAll(require.context('../images/portfolio/hq', false, /\.(webp)$/));
   }
 
-  componentWillMount() {
-    listOfImages = this.importAll(require.context('../images', false, /\.(webp)$/));
+  importAll(r) {
+    return r.keys().map(r);
   }
 
   render(){
     return(
       <>
-        { listOfImages.map((image, index) => {
+        { lowQualityImages.map((image, index) => {
+
+          const highResolutionImage = image.replace('lr_', 'hr_');
+
           return (
-            <Image source={image} key={index} />
+            <Image
+              lowResolutionImage = { image }
+              highResolutionImage = { highResolutionImage }
+              index = { index }
+              key = { index }
+            />
           )
         }) }
       </>
