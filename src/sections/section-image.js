@@ -1,5 +1,5 @@
 import React from 'react';
-import LazyLoad from 'react-lazyload';
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 export default function Image(source) {
 
@@ -10,9 +10,7 @@ export default function Image(source) {
     >
       <div className="image__inner container-image-fitscreen">
         <div className="image__body">
-          <LazyLoad
-            classNamePrefix="image__image"
-          >
+          <LazyLoadComponent>
             <div
               className="image__image-overlay"
               style={{ backgroundImage: `url(${ source.highResolutionImage })`}}
@@ -24,7 +22,7 @@ export default function Image(source) {
                 data-low-resolution-image
               />
             </div>
-          </LazyLoad>
+          </LazyLoadComponent>
         </div>
       </div>
     </section>

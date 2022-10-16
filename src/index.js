@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { TranslateProvider } from 'react-translate-json';
+import { TranslateProvider } from '@rubancorp/react-translate-json';
 
 import App from './App';
 import './translations/en.json';

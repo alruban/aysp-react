@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Translate } from 'react-translate-json/react';
+import { Translate } from '@rubancorp/react-translate-json/react';
 
 import IconInstagram from '../svgs/svg-icon-instagram.svg'
 
