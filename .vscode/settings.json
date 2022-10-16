@@ -12,5 +12,6 @@
 		"**/node_modules": true,
 		"**/.eslintrc.js": true,
 		"**/stylelint.config.js": true,
+		"**/old_low_res_images": true
 	}
 }

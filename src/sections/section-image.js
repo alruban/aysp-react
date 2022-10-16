@@ -1,30 +1,51 @@
 import React from 'react';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
-export default function Image(source) {
+class Image extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <section
-      className="image"
-      data-index={`${ source.index }`}
-    >
-      <div className="image__inner container-image-fitscreen">
-        <div className="image__body">
-          <LazyLoadComponent>
-            <div
-              className="image__image-overlay"
-              style={{ backgroundImage: `url(${ source.highResolutionImage })`}}
-            ></div>
+    this.renderHighResolutionImage = this.renderHighResolutionImage.bind(this)
+  }
 
-            <div className="image__image">
+  renderHighResolutionImage() {
+    const lowResolutionImage = document.querySelector(`[data-index="${ this.props.index }"] [data-low-resolution-image]`);
+
+    lowResolutionImage.addEventListener("load", () => {
+      lowResolutionImage.classList.add("has-loaded");
+
+      const imageBody = document.querySelector(`[data-index="${ this.props.index }"] .image__body`);
+      const imageOverlay = document.createElement("div");
+
+      imageOverlay.classList.add("image__image-overlay")
+      imageOverlay.style.backgroundImage = `url(${ this.props.highResolutionImage })`
+
+      imageBody.insertBefore(imageOverlay, imageBody.firstChild)
+    });
+  }
+
+  render() {
+    return (
+      <section
+        className="image"
+        data-index={`${ this.props.index }`}
+      >
+        <div className="image__inner container-image-fitscreen">
+          <div className="image__body">
+            <LazyLoadComponent
+            afterLoad={ this.renderHighResolutionImage }
+            >
               <img
-                src={`${ source.lowResolutionImage }`}
+                className="image__image"
+                src={`${ this.props.lowResolutionImage }`}
                 data-low-resolution-image
               />
-            </div>
-          </LazyLoadComponent>
+            </LazyLoadComponent>
+          </div>
         </div>
-      </div>
-    </section>
-  )
+      </section>
+    )
+  }
 }
+
+export default Image;

@@ -2,3 +2,4 @@
 dist
 node_modules
 src/images/**
+old_low_res_images
