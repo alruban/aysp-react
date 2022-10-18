@@ -38,6 +38,7 @@ class Image extends React.Component {
               <img
                 className="image__image"
                 src={`${ this.props.lowResolutionImage }`}
+                fetchpriority="high"
                 data-low-resolution-image
               />
             </LazyLoadComponent>

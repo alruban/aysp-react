@@ -5,6 +5,9 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import manifestJSON from '/src/favicons/site.webmanifest';
 import browserconfigXML from '/src/favicons/browserconfig.xml';
 
+import firstImage from '/src/images/portfolio/lq/lr_image-0.webp';
+import fontFile from '/src/fonts/Canto.woff2';
+
 import faviconICO from '/src/favicons/favicon.ico';
 
 import favicon16x from '/src/favicons/favicon-16x16.png';
@@ -37,6 +40,8 @@ const Layout = (props) => (
       <meta name="keywords" content="photography, photographs, portfolio, 35mm, film, sam, clarke, photographer, analog, celluloid"/>
 
       <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <link rel="preload" as="image" href={ firstImage }/>
 
       <link rel="icon" type="image/x-icon" href={ faviconICO }/>
       <link rel="icon" type="image/png" sizes="16x16" href={ favicon16x }/>
