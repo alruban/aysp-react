@@ -9,18 +9,26 @@ class Image extends React.Component {
   }
 
   renderHighResolutionImage() {
+    const classes = {
+      hasLoaded: "has-loaded"
+    }
+
     const lowResolutionImage = document.querySelector(`[data-index="${ this.props.index }"] [data-low-resolution-image]`);
 
     lowResolutionImage.addEventListener("load", () => {
-      lowResolutionImage.classList.add("has-loaded");
+      lowResolutionImage.classList.add(classes.hasLoaded);
 
       const imageBody = document.querySelector(`[data-index="${ this.props.index }"] .image__body`);
-      const imageOverlay = document.createElement("div");
+      const imageOverlay = document.createElement("img");
 
       imageOverlay.classList.add("image__image-overlay")
-      imageOverlay.style.backgroundImage = `url(${ this.props.highResolutionImage })`
+      imageOverlay.setAttribute("data-high-resolution-image", "true");
+      imageOverlay.src = this.props.highResolutionImage;
 
       imageBody.insertBefore(imageOverlay, imageBody.firstChild)
+
+      const highResolutionImage = document.querySelector(`[data-index="${ this.props.index }"] [data-high-resolution-image]`);
+      highResolutionImage.addEventListener("load", () => highResolutionImage.classList.add(classes.hasLoaded));
     });
   }
 

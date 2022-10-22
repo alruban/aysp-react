@@ -6,7 +6,7 @@
 	"editor.tabSize": 2,
 	"/* Comment - files.exclude */": "Hidden to avoid clutter. Add back in if required.",
 	"files.exclude": {
-		"**/dist": true,
+		"**/dist": false,
 		"**/.git": true,
     "**/.github": true,
 		"**/node_modules": true,
